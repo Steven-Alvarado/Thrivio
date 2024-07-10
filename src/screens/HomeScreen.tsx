@@ -1,0 +1,1 @@
+/*Fullscreen components for home screen*/
