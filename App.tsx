@@ -12,6 +12,7 @@ export type RootStackParamList = {
   MainPage: undefined;
   CreateAccount: undefined;
   LoginAccount: undefined;
+  Profile: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="CreateAccount" component={CreateAccount} />
         <Stack.Screen name="LoginAccount" component={LoginAccount} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );

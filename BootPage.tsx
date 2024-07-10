@@ -15,7 +15,7 @@ const HomeScreen: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.replace('MainPage');
-    }, 30000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [navigation]);
