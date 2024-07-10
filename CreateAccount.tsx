@@ -16,9 +16,11 @@ const CreateAccountScreen: React.FC = () => {
 
   const navigation = useNavigation<CreateAccountScreenNavigationProp>();
 
+
   const onCreateAccountPressed = () => {
-    console.warn('Create Account');
-  };
+      console.warn('Create Account');
+    };
+  
 
   return (
     <View style={styles.container}>

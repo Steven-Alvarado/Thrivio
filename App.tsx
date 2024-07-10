@@ -5,12 +5,13 @@ import BootPage from './BootPage';
 import MainPage from './MainPage';
 import CreateAccount from './CreateAccount';
 import LoginAccount from './LoginAccount'; 
+import Profile from './Profile';
 
 export type RootStackParamList = {
   BootPage: undefined;
   MainPage: undefined;
   CreateAccount: undefined;
-  LoginAccount: undefined; // Add Login to the route types
+  LoginAccount: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
