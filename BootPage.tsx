@@ -1,5 +1,13 @@
+/**
+ * HomeScreen.tsx
+ * 
+ * Screen component for the home page (boot page).
+ * 
+ * @format
+ */
+
 import React, { useEffect } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from './App';
@@ -9,6 +17,11 @@ type HomeScreenNavigationProp = StackNavigationProp<
   'BootPage'
 >;
 
+/**
+ * HomeScreen component
+ * 
+ * @returns {JSX.Element} The home screen component
+ */
 const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
@@ -42,3 +55,5 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+// Coded by Rudra Patel

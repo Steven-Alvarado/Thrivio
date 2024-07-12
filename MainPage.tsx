@@ -1,13 +1,26 @@
+/**
+ * MainPage.tsx
+ * 
+ * Main landing page of the application.
+ * 
+ * @format
+ */
+
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, useWindowDimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import CustomInput from './inputs/LoginInputs';
 import CustomButton from './buttons/CustomButton';
-import { RootStackParamList } from './App'; // Import the RootStackParamList
+import { RootStackParamList } from './App'; 
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'BootPage'>;
 
+/**
+ * MainPage component
+ * 
+ * @returns {JSX.Element} The main landing page component
+ */
 const HomeScreen: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,6 +52,9 @@ const HomeScreen: React.FC = () => {
   );
 };
 
+/**
+ * Styles for the HomeScreen component
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -67,3 +83,5 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+// Coded by Rudra Patel

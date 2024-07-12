@@ -1,17 +1,33 @@
+/**
+ * LoginScreen.tsx
+ * 
+ * Screen component for user login.
+ * 
+ * @format
+ */
+
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from './App'; // Import the RootStackParamList
-import CustomButton from './buttons/CustomButton'; // Assuming you have a CustomButton component
+import { RootStackParamList } from './App'; 
+import CustomButton from './buttons/CustomButton';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'LoginAccount'>;
 
+/**
+ * LoginScreen component
+ * 
+ * @returns {JSX.Element} The login screen component
+ */
 const LoginScreen: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
+  /**
+   * Handle the login button press
+   */
   const onLoginPressed = () => {
     console.warn('Login');
   };
@@ -25,7 +41,7 @@ const LoginScreen: React.FC = () => {
         onChangeText={setEmail}
         style={styles.input}
         keyboardType="email-address"
-        placeholderTextColor="#8E8E93" // Placeholder color
+        placeholderTextColor="#8E8E93"
       />
       <TextInput
         placeholder="Password"
@@ -33,7 +49,7 @@ const LoginScreen: React.FC = () => {
         onChangeText={setPassword}
         style={styles.input}
         secureTextEntry
-        placeholderTextColor="#8E8E93" // Placeholder color
+        placeholderTextColor="#8E8E93"
       />
       <TouchableOpacity onPress={() => console.warn('Forgot password?')}>
         <Text style={styles.forgotPassword}>Forgot password?</Text>
@@ -41,7 +57,7 @@ const LoginScreen: React.FC = () => {
       <CustomButton imageSource='' text="Log in" onPress={onLoginPressed} type="PRIMARY" />
       <Text style={styles.orLoginWith}>Or Login with</Text>
       <View style={styles.socialButtonsContainer}>
-      <CustomButton text='' imageSource={require('./assets/facebook.png')} onPress={() => console.warn('Facebook login')} type="SOCIAL" />
+        <CustomButton text='' imageSource={require('./assets/facebook.png')} onPress={() => console.warn('Facebook login')} type="SOCIAL" />
         <CustomButton text='' imageSource={require('./assets/google.png')} onPress={() => console.warn('Google login')} type="SOCIAL" />
         <CustomButton text='' imageSource={require('./assets/apple.png')} onPress={() => console.warn('Apple login')} type="SOCIAL" />
       </View>
@@ -104,3 +120,5 @@ const styles = StyleSheet.create({
 });
 
 export default LoginScreen;
+
+// Coded by Rudra Patel
