@@ -1,30 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const HealthPlan = require('../models/HealthPlan');
 const auth = require('../middleware/auth');
 
-router.post('/', auth, async (req, res) => {
-  try {
-    const newHealthPlan = new HealthPlan({
-      user: req.user.id,
-      ...req.body
-    });
-    const healthPlan = await newHealthPlan.save();
-    res.json(healthPlan);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
+const {
+  createHealthPlan,
+  getHealthPlan,
+  updateHealthPlan,
+  deleteHealthPlan,
+  addReminder,
+  removeReminder
+} = require('../controllers/healthPlanController');
 
-router.get('/', auth, async (req, res) => {
-  try {
-    const healthPlan = await HealthPlan.findOne({ user: req.user.id });
-    res.json(healthPlan);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
+// POST /api/health-plan
+// Create a new health plan
+router.post('/', auth, createHealthPlan);
+
+// GET /api/health-plan
+// Get user's health plan
+router.get('/', auth, getHealthPlan);
+
+// PUT /api/health-plan
+// Update health plan
+router.put('/', auth, updateHealthPlan);
+
+// DELETE /api/health-plan
+// Delete health plan
+router.delete('/', auth, deleteHealthPlan);
+
+// POST /api/health-plan/reminder
+// Add a reminder to health plan
+router.post('/reminder', auth, addReminder);
+
+// DELETE /api/health-plan/reminder/:reminder_id
+// Remove a reminder from health plan
+router.delete('/reminder/:reminder_id', auth, removeReminder);
 
 module.exports = router;
