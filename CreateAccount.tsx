@@ -34,7 +34,6 @@ const CreateAccountScreen: React.FC = () => {
    */
   const onCreateAccountPressed = () => {
     console.warn('Create Account');
-    navigation.navigate('Profile');
   };
 
   return (
