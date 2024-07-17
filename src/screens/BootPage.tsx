@@ -35,7 +35,7 @@ const HomeScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('./assets/Thrivio.jpeg')} style={styles.logo} />
+      <Image source={require('../../src/assets/Thrivio.jpeg')} style={styles.logo} />
     </View>
   );
 };

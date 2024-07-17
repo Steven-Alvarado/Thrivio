@@ -9,12 +9,12 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import BootPage from './BootPage';
-import MainPage from './MainPage';
-import CreateAccount from './CreateAccount';
-import LoginAccount from './LoginAccount'; 
-import Profile from './Profile';
-import ProfileSettings from './ProfileSettings';
+import BootPage from '../../src/screens/BootPage'
+import MainPage from '../../src/screens/MainPage';
+import CreateAccount from '../../src/screens/CreateAccount';
+import LoginAccount from '../../src/screens/LoginAccount'; 
+import Profile from '../../src/screens/Profile';
+import ProfileSettings from '../../src/screens/ProfileSettings';
 
 /**
  * Define the type for the stack parameters

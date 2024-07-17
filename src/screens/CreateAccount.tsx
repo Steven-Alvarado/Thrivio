@@ -11,9 +11,8 @@ import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { CheckBox } from 'react-native-elements';
-import CustomButton from './buttons/CustomButton';
 import { RootStackParamList } from './App'; // Import the RootStackParamList
-
+import CustomButton from '../buttons/CustomButton';
 type CreateAccountScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'CreateAccount'>;
 
 /**

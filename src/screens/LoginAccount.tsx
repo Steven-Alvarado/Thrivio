@@ -11,7 +11,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from './App'; 
-import CustomButton from './buttons/CustomButton';
+import CustomButton from '../buttons/CustomButton';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'LoginAccount'>;
 
@@ -57,9 +57,9 @@ const LoginScreen: React.FC = () => {
       <CustomButton imageSource='' text="Log in" onPress={onLoginPressed} type="PRIMARY" />
       <Text style={styles.orLoginWith}>Or Login with</Text>
       <View style={styles.socialButtonsContainer}>
-        <CustomButton text='' imageSource={require('./assets/facebook.png')} onPress={() => console.warn('Facebook login')} type="SOCIAL" />
-        <CustomButton text='' imageSource={require('./assets/google.png')} onPress={() => console.warn('Google login')} type="SOCIAL" />
-        <CustomButton text='' imageSource={require('./assets/apple.png')} onPress={() => console.warn('Apple login')} type="SOCIAL" />
+        <CustomButton text='' imageSource={require('../../src/assets/facebook.png')} onPress={() => console.warn('Facebook login')} type="SOCIAL" />
+        <CustomButton text='' imageSource={require('../../src/assets/google.png')} onPress={() => console.warn('Google login')} type="SOCIAL" />
+        <CustomButton text='' imageSource={require('../../src/assets/apple.png')} onPress={() => console.warn('Apple login')} type="SOCIAL" />
       </View>
       <Text style={styles.footerText}>
         Don’t have an account? <Text onPress={() => navigation.navigate('CreateAccount')} style={styles.link}>Sign up</Text>

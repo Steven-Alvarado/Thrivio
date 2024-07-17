@@ -10,8 +10,8 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, useWindowDimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import CustomInput from './inputs/LoginInputs';
-import CustomButton from './buttons/CustomButton';
+import CustomInput from '../inputs/LoginInputs';
+import CustomButton from '../buttons/CustomButton';
 import { RootStackParamList } from './App'; 
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'BootPage'>;
@@ -38,7 +38,7 @@ const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <Image 
-        source={require('./assets/Thrivio.jpeg')} 
+        source={require('../../src/assets/Thrivio.jpeg')} 
         style={[styles.logo, { height: height * 0.5 }]} 
         resizeMode="contain"
       />
