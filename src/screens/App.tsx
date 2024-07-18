@@ -15,6 +15,9 @@ import CreateAccount from '../../src/screens/CreateAccount';
 import LoginAccount from '../../src/screens/LoginAccount'; 
 import Profile from '../../src/screens/Profile';
 import ProfileSettings from '../../src/screens/ProfileSettings';
+import ProfilePayment from '../../src/screens/ProfilePayment';
+import AddMethod from './AddMethod';
+import UserDashboard from './UserDashboard';
 
 /**
  * Define the type for the stack parameters
@@ -26,6 +29,9 @@ export type RootStackParamList = {
   LoginAccount: undefined;
   Profile: undefined;
   ProfileSettings: undefined;
+  ProfilePayment: undefined;
+  AddMethod: undefined;
+  UserDashboard: undefined;
 };
 
 /**
@@ -48,6 +54,9 @@ const App: React.FC = () => {
         <Stack.Screen name="LoginAccount" component={LoginAccount} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
+        <Stack.Screen name="ProfilePayment" component={ProfilePayment} />
+        <Stack.Screen name="AddMethod" component={AddMethod} />
+        <Stack.Screen name="UserDashboard" component={UserDashboard} />
       </Stack.Navigator>
     </NavigationContainer>
   );

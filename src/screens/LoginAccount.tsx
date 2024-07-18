@@ -30,6 +30,7 @@ const LoginScreen: React.FC = () => {
    */
   const onLoginPressed = () => {
     console.warn('Login');
+    navigation.navigate('UserDashboard')
   };
 
   return (

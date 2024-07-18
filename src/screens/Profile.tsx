@@ -1,14 +1,14 @@
 // Profile.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from './App';
 
-// Define type for ProfileScreen navigation
-type ProfileScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Profile'>;
+// Define type for Profile navigation
+type ProfileNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Profile'>;
 
 // Define props for MenuItem component
 interface MenuItemProps {
@@ -18,9 +18,9 @@ interface MenuItemProps {
 }
 
 // Define the ProfileScreen component
-const ProfileScreen: React.FC = () => {
+const Profile: React.FC = () => {
   // Access navigation prop
-  const navigation = useNavigation<ProfileScreenNavigationProp>();
+  const navigation = useNavigation<ProfileNavigationProp>();
 
   return (
     <View style={styles.container}>
@@ -43,26 +43,25 @@ const ProfileScreen: React.FC = () => {
 
       {/* Menu items */}
       <View style={styles.menu}>
-        <MenuItem icon="file" text="Personal Information" onPress={() => {}} />
-        <MenuItem icon="history" text="Medical History" onPress={() => {}} />
-        <MenuItem icon="heartbeat" text="Health Preferences" onPress={() => {}} />
-        <MenuItem icon="credit-card" text="Payment Methods" onPress={() => {}} />
-        <MenuItem icon="cogs" text="Settings" onPress={() => navigation.navigate('ProfileSettings')} />
+        <MenuItem icon="information" text="Personal Information" onPress={() => {}} />
+        <MenuItem icon="clipboard" text="Medical History" onPress={() => {}} />
+        <MenuItem icon="card" text="Payment Methods" onPress={() => navigation.navigate('ProfilePayment')} />
+        <MenuItem icon="settings" text="Settings" onPress={() => navigation.navigate('ProfileSettings')} />
       </View>
 
       {/* Footer with icons */}
       <View style={styles.footer}>
-        <TouchableOpacity>
-          <Icon name="home" size={24} color="white" style={styles.icon} />
+        <TouchableOpacity onPress={() => navigation.navigate('UserDashboard')}>
+          <Ionicons name="home" size={24} color="white"  style={styles.icon} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+          <Ionicons name="person" size={24} color="white" style={styles.icon}/>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Icon name="user" size={24} color="white" style={styles.icon} />
+          <Ionicons name="notifications" size={24} color="white" style={styles.icon}/>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Icon name="bell" size={24} color="white" style={styles.icon} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="cogs" size={24} color="white" style={styles.icon} />
+          <Ionicons name="settings" size={24} color="white" style={styles.icon}/>
         </TouchableOpacity>
       </View>
     </View>
@@ -73,7 +72,7 @@ const ProfileScreen: React.FC = () => {
 const MenuItem: React.FC<MenuItemProps> = ({ icon, text, onPress }) => {
   return (
     <TouchableOpacity style={styles.menuItem} onPress={onPress}>
-      <Icon name={icon} size={20} color="#000" />
+      <Ionicons name={icon} size={20} color="#000" />
       <Text style={styles.menuItemText}>{text}</Text>
       <MaterialIcons name="keyboard-arrow-right" size={20} color="#000" />
     </TouchableOpacity>
@@ -150,6 +149,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen;
+export default Profile;
 
 //Coded by Rudra Patel
