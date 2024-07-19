@@ -1,7 +1,8 @@
-/*api calls and external services*/
+//api calls and external services
 import axios from 'axios';
 
-const API_URL = 'http://ip-address:3000/api'
+// URL for backend server 
+const API_URL = 'http://ip-address:3000/api' 
 
 const api = axios.create({
     baseURL: API_URL,

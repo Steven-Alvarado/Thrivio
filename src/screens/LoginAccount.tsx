@@ -7,11 +7,12 @@
  */
 
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from './App'; 
+import { RootStackParamList } from './App';
 import CustomButton from '../buttons/CustomButton';
+import { login, setAuthToken } from '../services/api';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'LoginAccount'>;
 
@@ -25,11 +26,18 @@ const LoginScreen: React.FC = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
-  /**
-   * Handle the login button press
-   */
-  const onLoginPressed = () => {
-    console.warn('Login');
+
+  //Handle the login button press
+
+  const onLoginPressed = async () => {
+    try {
+      const { token } = await login(email, password);
+      setAuthToken(token);
+      navigation.navigate('Home'); // TODO: navigate to home screen after login  
+    }
+    catch (error) { 
+      Alert.alert('Failed to login', error.message);
+    }
   };
 
   return (
